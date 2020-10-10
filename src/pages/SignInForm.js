@@ -25,6 +25,7 @@ class SignInForm extends Component {
         console.log(response)
         if(   response.data.Login = 'true')
         {
+          localStorage.setItem("token", response.data.token )
           this.setState({
               loggedIn: true
           })
@@ -39,7 +40,7 @@ class SignInForm extends Component {
   }
   render() {
     if(this.state.loggedIn){
-      return <Redirect to="/net" />
+      return <Redirect to="/Check" />
     }
     const { student_no, password } = this.state
     return (

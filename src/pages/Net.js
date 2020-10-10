@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import Posts from './Posts';
 import axios from 'axios';
 import './Net1.css';
 import Pagination from './Pagination';
-
+import Logout from './Logout';
 const Net = () => {
   const [posts,setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,13 +26,17 @@ const Net = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
   
-  return(
-    <div className="container mt-5">
+     return (
+      
+      <div className="container mt-5">
       <h1 className="text-warning ">Covid-19 Table</h1>
       <Posts posts={currentPosts} loading={loading} />
       <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
+      <Logout />
     </div> 
-  );
+
+     )
+   
 
   
 };
